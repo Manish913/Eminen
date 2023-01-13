@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.7.7/483f6acb3b0aff6c3d3dc99e8b8f390fa893d0a2/spring-boot-configuration-processor-2.7.7.jar" />
+        </processorPath>
+        <module name="Eminent.Eminent.main~1" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Eminent.Eminent.main" target="1.8" />
+      <module name="Eminent.Eminent.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

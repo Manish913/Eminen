@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Result</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css"
+        th:href="@{/css/dashboard.css}" />
+</head>
+<body>
+<h2>Result</h2>
+<table>
+  <tbody>
+  <tr>
+    <td><strong>Admin ID:</strong></td>
+    <td><span th:text="${admin.adminId}"></span></td>
+  </tr>
+  <tr>
+    <td><strong>Admin Name:</strong></td>
+    <td><span th:text="${admin.adminName}"></span></td>
+  </tr>
+  <tr>
+    <td><strong>Admin Contact:</strong></td>
+    <td><span th:text="${admin.adminContact}"></span></td>
+  </tr>
+  <tr>
+    <td><strong>Admin Role:</strong></td>
+    <td><span th:text="${admin.adminRole}"></span></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;<a th:href="@{dashboard}"
+                             class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Add
+      new employee
+    </a></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;<a th:href="@{message}"
+                             class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Registration
+      Here....
+    </a></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/login.css}" />
+<!--&lt;!&ndash;    th:href="@{/css/dashboard.css}" -->
+</head>
+<body>
+<h2>Information Of Employee</h2>
+<table>
+<!--    <form method="get" th:object="con">-->
+    <tbody>
+    <tr>
+        <td><strong>Admin ID:</strong></td>
+        <td><span th:text="${admi.getAdminId()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Admin Name:</strong></td>
+        <td><span th:text="${admi.getAdminName()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Admin Contact:</strong></td>
+        <td><span th:text="${admi.getAdminContact()}"></span></td>
+    </tr>
+    <tr>
+        <td><strong>Admin Role:</strong></td>
+        <td><span th:text="${admi.getAdminRole()}"></span></td>
+    </tr>
+    <tr>
+<!--        <td colspan="2">&nbsp;<a th:href="@{dashboard}"-->
+        <td colspan="2">&nbsp;<a th:href="@{/message}"
+                                 class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Register
+            here
+        </a></td>
+    </tr>
+    </tbody>
+<!--    </form>-->
+</table>
+</body>
+</html>

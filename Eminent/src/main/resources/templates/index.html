@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eminent POS Portal v2.0</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet"  th:href="@{/css/fontawesome-free/css/all.min.css}" >
+  <link rel="stylesheet" th:href="@{/css/icheck-bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+</head>
+<body class="hold-transition login-page" th:style="'background-image:url(' +@{/images/back.jpg} + ');background-size: contain;'">
+<div class="login-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a th:href="index2.html" class="h1"><b>EMINENT</b> INDIA</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+      <form method="post" th:action="@{/login/}" th:object="${loginInfo}">
+        <div class="input-group mb-3">
+          <div class="input-group-append"><div class="input-group-text">+91</div></div>
+          <input required ="required" type="text" maxlength="10" minlength="10"  th:value="${mobile}" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" name="mobile_no"   class="form-control" placeholder="Contact Number" :field="*{mobile_no}" />
+        </div>
+        <div class="input-group mb-3">
+          <input  type="text" maxlength="4" minlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"  name="otp" class="form-control"  placeholder='One Time Password'  DISABLED  >
+          <th:block th:if="${mobile} != null">
+            <input type="text" maxlength="4" minlength="4"  th:value="${otp}" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"  name="otp" class="form-control" style='text-align: center;font-size: xx-large;letter-spacing: 10px' :field="*{otp}" >
+          </th:block>
+        </div>
+        <th:block th:if="${mobile} != null">
+        <p class='text-muted text-center text-red mt-3 mb-0'> OTP send to register Mail & Whatsapp Number </p>
+        </th:block>
+        <div class="row">
+          <div class="col-7">
+            <button type="submit" class="btn btn-primary btn-block">SUBMIT</button>
+          </div>
+<!--&lt;!&ndash;          //new code implemented here&ndash;&gt;-->
+<!--          <div th:if="${mobile.error}" class="alert alert-danger">-->
+<!--           User does not exist-->
+<!--          </div>-->
+          <div class="col-5">
+            <a class="btn btn-danger btn-block" th:href="@{/}">RESET</a>
+          </div>
+<!--          new code imlemented here-->
+<!--          <a th:href="@{dashboard.html}" >register</a>-->
+
+<!--          <div class="col-5">-->
+<!--            <a class="btn btn-danger btn-block" th:href="@{/register}">SIGNUP</a>-->
+<!--          </div>-->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script th:src="@{/js/jquery/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap_js/bootstrap.bundle.min.js}"></script>
+<script type="text/javascript" th:src="@{/dist/js/adminlte.min.js}"></script>
+<!--<script>alert("User Does Not Exist...Please sing up!!!")</script>-->
+</body>
+</html>
+

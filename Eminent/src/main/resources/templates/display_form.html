@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Result</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css"
+        th:href="@{/css/display_form.css}" />
+</head>
+<body>
+<h2>Result</h2>
+<table>
+  <tbody>
+  <tr>
+    <td><strong>Admin ID:</strong></td>
+    <td><span th:text="${employee.id}"></span></td>
+  </tr>
+  <tr>
+    <td><strong>Admin Name:</strong></td>
+    <td><span th:text="${employee.adminName}"></span></td>
+
+  </tr>
+  <tr>
+    <td><strong>Admin Contact:</strong></td>
+    <td><span th:text="${employee.adminContact}"></span></td>
+
+  </tr>
+  <tr>
+    <td><strong>Admin Role:</strong></td>
+    <td><span th:text="${employee.adminRole}"></span></td>
+
+  </tr>
+  <tr>
+    <td><strong>Department:</strong></td>
+    <td><span th:text="${employee.dept}"></span></td>
+
+  </tr>
+
+
+  </tbody>
+</table>
+</body>
+</html>
