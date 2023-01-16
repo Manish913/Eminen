@@ -3,8 +3,11 @@ package com.eminent.controller;
 
 import com.eminent.model.Admin;
 import com.eminent.model.LoginInfo;
+//import com.eminent.repository.AdminRepository;
+//import com.eminent.utills.Utility;
 import com.eminent.repository.AdminRepository;
 import com.eminent.utills.Utility;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -12,10 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-//import java.util.ArrayList;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import java.util.*;
+
+
 
 @Controller
 public class EminentController {
@@ -49,9 +52,7 @@ public class EminentController {
     @GetMapping ("/ass")
     public List<Admin> findByAssiManager() {
         List<Admin> all = adminRepository.findByAdminRoleNotLikeAndAdminRoleIsNot("admin", "manager");
-//        Iterable<Admin> all = adminRepository.findByAdminRoleNotLike("admin");
-//        Iterable<Admin> manager = adminRepository.findByAdminRoleNotLike("manager");
-//        List<Admin> as=new LinkedList<>();
+
 return all;
     }
 
@@ -61,17 +62,7 @@ return all;
         Admin id = byId.get();
         return id;
     }
-//    @GetMapping ("/ass")
-//    public List<Admin> findByAssiManager(){
-//        Iterable<Admin> all = adminRepository.findByAdminRoleNotLike("admin");
-//        Iterable<Admin> manager = adminRepository.findByAdminRoleNotLike("manager");
-//        List<Admin> as=new LinkedList<>();
-//
-//        as.addAll((Collection<? extends Admin>) all);
-//       boolean b = as.addAll((Collection<? extends Admin>) manager);
-//        return (List<Admin>) all;
-//
-//    }
+
     @GetMapping ("/emp")
     public Admin findByEqual(){
         Admin employee = adminRepository.findByAdminRoleEquals("employee");
@@ -88,25 +79,46 @@ return all;
 
 
 
-//    @RequestMapping("/save")
-//    public String saveAdmins(Model model ,Admin admin ){
-//        adminRepository.save(admin);
-//        model.addAttribute("msg","SAVED......");
-//
-//        return "message";
-//    }
-    ///starts from here by tommorow
-//    @GetMapping({"/Admin","/Manager","/Assistant Manager","/Employee"})
-//    public String getDependOnRole(ModelMap model,String adminRole, Admin admin){
-//           if(adminRepository.findByAdminRole("admin")  adminRepository.findByAdminRoleNotLikeAndAdminRoleIsNot("admin", "manager"))
-//        return"";
-//    }
+
+
+    @GetMapping({"/save"})
+    public String save(ModelMap model ,@ModelAttribute Admin admin){
+
+        List<Admin> admins= (List<Admin>) adminRepository.findAll();
+        List<Admin> adm= (List<Admin>) adminRepository.findByAdminRoleNotLike("admin");
+        List<Admin> ass= (List<Admin>) adminRepository.findByAdminRoleNotLikeAndAdminRoleIsNot("admin","manager");
+
+
+        model.addAttribute("admins",admins);
+        System.out.println(admins);
+        System.out.println(admins);
+        model.addAttribute("adm",adm);
+        System.out.println(adm);
+        model.addAttribute("ass");
+        System.out.println(ass);
+
+List<Admin> li=new ArrayList<>((admins) );
+
+        for (Admin add:li ) {
+
+
+
+            System.out.println(add.getAdminId());
+            System.out.println(add.getAdminName());
+            //System.out.println(add.getAdminContact());
+            System.out.println(add.getAdminRole());
+
+
+        }
+        return"register-form";
+    }
 
 
     @GetMapping({"/","/message"})
     public String message(ModelMap model){
         return "message";
     }
+    
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
    public String login(ModelMap model, @ModelAttribute LoginInfo loginInfo , Admin admin ) {
